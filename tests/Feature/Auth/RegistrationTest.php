@@ -21,14 +21,14 @@ class RegistrationTest extends TestCase
         $response = $this->post('/register',[
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
-            'identification_number' => 32959035,
-            'mobile_number' => 0700545727,
+            'identification_number' => 329590355,
+            'mobile_number' => 254700545727,
             'email' => $this->faker->email(),
             'password' => 'password',
             'password_confirmation' => 'password'
         ]);
 
-        // $this->assertAuthenticated();
+        $this->assertAuthenticated();
         $response->assertNoContent();
     }
 }
