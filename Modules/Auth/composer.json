@@ -1,0 +1,16 @@
+{
+    "name": "jkemboe/auth",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Auth\\": "Modules/Auth"
+        }
+    },
+    "authors": [
+        {
+            "name": "Joseph Keilan",
+            "email": "josephkeilan3@gmail.com"
+        }
+    ],
+    "require": {}
+}
