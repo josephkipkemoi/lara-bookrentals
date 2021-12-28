@@ -3,7 +3,6 @@
 namespace Modules\Balance\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules;
 
 class CreateBalanceRequest extends FormRequest
 {

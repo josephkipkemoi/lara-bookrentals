@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Modules\Balance\Models\Balance;
+
 class DatabaseSeeder extends Seeder
 {
     /**
