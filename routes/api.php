@@ -2,8 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Modules\Auth\Http\Controllers\RegisterUserController;
-
+use Modules\Balance\Http\Controllers\BalanceController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +13,8 @@ use Modules\Auth\Http\Controllers\RegisterUserController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::post('v1/balance', BalanceController::class );
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
