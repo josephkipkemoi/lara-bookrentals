@@ -5,5 +5,5 @@ use Modules\Auth\Http\Controllers\RegisterUserController;
 
 
 
-Route::post('/register', [RegisterUserController::class] )->middleware('guest');
+Route::post('/register', RegisterUserController::class )->middleware('guest');
 
