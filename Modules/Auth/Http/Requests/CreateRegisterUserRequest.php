@@ -22,13 +22,14 @@ class CreateRegisterUserRequest extends FormRequest
      *
      * @return array
      */
+
     public function rules()
     {
         return [
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'identification_number' => ['required', 'int'],
-            'mobile_number' => ['required', 'int'],
+            'identification_number' => ['required', 'integer','min:10'],
+            'mobile_number' => ['required', 'numeric'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required','confirmed', Rules\Password::defaults()],
         ];
