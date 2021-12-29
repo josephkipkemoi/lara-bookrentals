@@ -14,7 +14,7 @@ use Modules\Balance\Http\Controllers\BalanceController;
 |
 */
 
-Route::post('v1/balance', BalanceController::class );
+Route::post("v1/balances", BalanceController::class );
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
