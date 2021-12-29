@@ -4,11 +4,15 @@ namespace Tests\Feature\Balance;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Modules\Auth\Models\User;
 use Tests\TestCase;
+use Illuminate\Support\Str;
+use Modules\Balance\Models\Balance;
 
 class BalanceTest extends TestCase
 {
     use WithFaker;
+    use RefreshDatabase;
     /**
      * A basic feature test example.
      *
@@ -16,8 +20,22 @@ class BalanceTest extends TestCase
      */
     public function test_user_can_post_balance()
     {
-        $response = $this->post('api/v1/balance',[
+        $user = User::create([
+        'first_name' => $this->faker->firstName(),
+        'last_name' => $this->faker->lastName(),
+        'email' => $this->faker->unique()->safeEmail(),
+        'identification_number' => 32959035,
+        'mobile_number' => 0700545727,
+        'email_verified_at' => now(),
+        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'remember_token' => Str::random(10),
+        ]);
+
+       $balance = Balance::create(['balance' => 200, 'user_id' => $user->id]);
+
+        $response = $this->post("api/v1/balances",[
             'balance' => $this->faker->numberBetween(50,100),
+            'user_id' => $user->id
         ]);
 
         $response->assertCreated();
