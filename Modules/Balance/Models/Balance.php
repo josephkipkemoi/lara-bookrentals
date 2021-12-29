@@ -4,6 +4,7 @@ namespace Modules\Balance\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Auth\Models\User;
 
 class Balance extends Model
 {
@@ -15,10 +16,16 @@ class Balance extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'balance',
+        'balance', 'user_id'
     ];
 
     protected $casts = [
         'balance' => 'integer',
+        'user_id' => 'integer'
     ];
+
+    public function user()
+    {
+        $this->belongsTo(User::class);
+    }
 }
