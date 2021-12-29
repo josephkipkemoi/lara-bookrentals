@@ -9,8 +9,8 @@ use Modules\Balance\Models\Balance;
 class BalanceController extends Controller
 {
     // Register user
-    public function __invoke(CreateBalanceRequest $request)
+    public function __invoke(CreateBalanceRequest $request, Balance $balance)
     {
-      return Balance::create((array) new CreateBalanceDTO(...$request->validated()));
+      return $balance->create((array) new CreateBalanceDTO(...$request->validated()));
     }
 }
