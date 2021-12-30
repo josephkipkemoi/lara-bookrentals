@@ -15,6 +15,7 @@ class CreateAssignmentsTable extends Migration
     {
         Schema::create('assignments', function (Blueprint $table) {
             $table->id();
+            $table->boolean('assignment_status');
             $table->timestamps();
         });
     }
