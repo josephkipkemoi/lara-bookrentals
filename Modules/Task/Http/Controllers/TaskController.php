@@ -8,7 +8,7 @@ use Modules\Task\Models\Task;
 
 class TaskController extends Controller
 {
-    // Register user
+    // create task
     public function __invoke(CreateTaskRequest $request, Task $task)
     {
       return $task->create((array) new CreateTaskDTO(...$request->validated()));
