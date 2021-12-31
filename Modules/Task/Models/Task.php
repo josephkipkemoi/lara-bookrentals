@@ -15,13 +15,15 @@ class Task extends Model
      */
     protected $fillable = [
         'task_completed',
-        'task_id',
-        'task_started_at'
+        'assignment_id',
+        'task_started_at',
+        'user_id'
     ];
 
     protected $casts = [
         'task_completed' => 'boolean',
-        'task_id' => 'integer',
-        'task_started_at' => 'datetime'
+        'assignment_id' => 'integer',
+        'task_started_at' => 'datetime',
+        'user_id' => 'integer'
     ];
 }
