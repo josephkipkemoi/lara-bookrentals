@@ -4,7 +4,12 @@ namespace Tests\Feature\Task;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Modules\Assignment\Models\Assignment;
+use Modules\Auth\Models\User;
+use Modules\Balance\Models\Balance;
 use Tests\TestCase;
+
+use function PHPUnit\Framework\assertEquals;
 
 class TaskTest extends TestCase
 {
@@ -17,12 +22,36 @@ class TaskTest extends TestCase
      */
     public function test_can_post_task_status()
     {
+        $user = User::create([
+            'first_name' => $this->faker->firstName(),
+            'last_name' => $this->faker->lastName(),
+            'identification_number' => 329590355,
+            'mobile_number' => 254700545727,
+            'email' => $this->faker->email(),
+            'password' => 'password',
+            'password_confirmation' => 'password'
+        ]);
+
+        $assignment = Assignment::create([
+            'assignment_status' => $this->faker()->boolean()
+        ]);
+
+        $balance = Balance::create([
+            'balance' => 17,
+            'user_id' => $user->id
+        ]);
+
         $response = $this->post('api/v1/tasks',[
             'task_completed' => $this->faker()->boolean(),
-            'task_id' => 1, // to reference assignment id
-            'task_started_at' => $this->faker()->time()
+            'assignment_id' => $assignment->id,
+            'task_started_at' => $this->faker()->time(),
+            'user_id' => $user->id
          ]);
 
         $response->assertCreated();
+        //  Test if task is complete, balance is updated by 10
+        $response->getData()->task_completed ?
+        assertEquals($balance->where('user_id', $user->id)->pluck('balance')[0], 27) :
+        assertEquals($balance->where('user_id', $user->id)->pluck('balance')[0], 17);
     }
 }
