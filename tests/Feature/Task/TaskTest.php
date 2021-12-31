@@ -36,11 +36,6 @@ class TaskTest extends TestCase
             'assignment_status' => $this->faker()->boolean()
         ]);
 
-        $balance = Balance::create([
-            'balance' => 17,
-            'user_id' => $user->id
-        ]);
-
         $response = $this->post('api/v1/tasks',[
             'task_completed' => $this->faker()->boolean(),
             'assignment_id' => $assignment->id,
@@ -49,9 +44,10 @@ class TaskTest extends TestCase
          ]);
 
         $response->assertCreated();
+
         //  Test if task is complete, balance is updated by 10
         $response->getData()->task_completed ?
-        assertEquals($balance->where('user_id', $user->id)->pluck('balance')[0], 27) :
-        assertEquals($balance->where('user_id', $user->id)->pluck('balance')[0], 17);
+        assertEquals(Balance::where('user_id', $user->id)->pluck('balance')[0], 10) :
+        assertEquals(Balance::where('user_id', $user->id)->pluck('balance')[0], 0);
     }
 }
