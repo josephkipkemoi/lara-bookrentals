@@ -14,16 +14,22 @@ class Task extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'task_completed',
+        'user_id',
         'assignment_id',
-        'task_started_at',
-        'user_id'
+        'task_completed',
+        'task_completed_at',
+        'assignment_category',
+        'assignment_rating',
+        'assignment_earning'
     ];
 
     protected $casts = [
         'task_completed' => 'boolean',
         'assignment_id' => 'integer',
-        'task_started_at' => 'datetime',
-        'user_id' => 'integer'
+        'task_completed_at' => 'datetime',
+        'user_id' => 'integer',
+        'assignment_category' => 'string',
+        'assignment_rating' => 'integer',
+        'assignment_earning' => 'integer'
     ];
 }
