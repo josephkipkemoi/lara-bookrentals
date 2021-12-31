@@ -8,6 +8,7 @@ use Modules\Role\Http\Controllers\GetRoleController;
 use Modules\Role\Http\Controllers\RoleController;
 use Modules\Task\Http\Controllers\TaskController;
 use Modules\Assignment\Http\Controllers\AssignmentController;
+use Modules\Assignment\Http\Controllers\AssignmentIdController;
 use Modules\Review\Http\Controllers\ReviewController;
 use Modules\Review\Http\Controllers\ReviewUserController;
 /*
@@ -62,7 +63,7 @@ Route::post("v1/tasks", TaskController::class)->middleware('guest');
  * task that is to be performed by the client
  */
 Route::post("v1/assignments", AssignmentController::class)->middleware('guest');
-
+Route::get("v1/assignments/{assignment}", AssignmentIdController::class)->middleware('guest');
 /**
  * --------------------------
  *      MODULES/REVIEW
