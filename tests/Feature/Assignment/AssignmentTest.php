@@ -18,7 +18,8 @@ class AssignmentTest extends TestCase
     public function test_can_post_assignment()
     {
         $response = $this->post('api/v1/assignments',[
-            'assignment_status' => $this->faker()->boolean()
+            'question' => $this->faker()->text(),
+            'category' => $this->faker()->word()
         ]);
 
         $response->assertCreated();
