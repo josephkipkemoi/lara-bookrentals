@@ -26,8 +26,9 @@ class CreateTaskRequest extends FormRequest
     {
         return [
             'task_completed' => ['required', 'boolean'],
-            'task_id' => ['required', 'integer'],
-            'task_started_at' => ['required', 'string']
+            'assignment_id' => ['required', 'integer'],
+            'task_started_at' => ['required', 'string'],
+            'user_id' => ['required', 'integer']
         ];
     }
 
