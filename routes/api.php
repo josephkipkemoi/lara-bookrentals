@@ -9,6 +9,7 @@ use Modules\Role\Http\Controllers\RoleController;
 use Modules\Task\Http\Controllers\TaskController;
 use Modules\Assignment\Http\Controllers\AssignmentController;
 use Modules\Review\Http\Controllers\ReviewController;
+use Modules\Review\Http\Controllers\ReviewUserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -70,6 +71,7 @@ Route::post("v1/assignments", AssignmentController::class)->middleware('guest');
  *  Receive created reviews
  */
 Route::post("v1/reviews", ReviewController::class)->middleware('guest');
+Route::get("v1/reviews", ReviewUserController::class)->middleware('guest');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
