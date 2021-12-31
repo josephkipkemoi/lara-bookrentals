@@ -6,7 +6,9 @@ class CreateAssignmentDTO
 {
     public function __construct(
 
-        public bool $assignment_status,
+        public string $question,
+
+        public string $category,
 
     ){}
 }
