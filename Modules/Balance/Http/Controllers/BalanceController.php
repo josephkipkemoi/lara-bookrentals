@@ -8,7 +8,7 @@ use Modules\Balance\Models\Balance;
 
 class BalanceController extends Controller
 {
-    // Register user
+    // update balance
     public function __invoke(CreateBalanceRequest $request, Balance $balance)
     {
       return $balance->create((array) new CreateBalanceDTO(...$request->validated()));
