@@ -25,7 +25,8 @@ class CreateAssignmentRequest extends FormRequest
     public function rules()
     {
         return [
-            'assignment_status' => ['required', 'boolean'],
+            'question' => ['required', 'string'],
+            'category' => ['required', 'string']
         ];
     }
 
