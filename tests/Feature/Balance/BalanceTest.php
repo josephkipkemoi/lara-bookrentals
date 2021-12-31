@@ -55,8 +55,6 @@ class BalanceTest extends TestCase
             'remember_token' => Str::random(10),
         ]);
 
-        Balance::create(['balance' => 0, 'user_id' => $user->id]);
-
         $response = $this->get("api/v1/balances/$user->id");
 
         $response->assertOk();
