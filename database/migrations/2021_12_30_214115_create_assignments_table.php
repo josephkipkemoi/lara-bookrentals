@@ -15,7 +15,13 @@ class CreateAssignmentsTable extends Migration
     {
         Schema::create('assignments', function (Blueprint $table) {
             $table->id();
-            $table->boolean('assignment_status');
+
+            $table->boolean('locked')->default(true);
+            $table->string('question');
+            $table->string('category');
+            $table->integer('lowest_rating')->default(0);
+            $table->integer('highest_rating')->default(10);
+
             $table->timestamps();
         });
     }
