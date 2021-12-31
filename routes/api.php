@@ -8,6 +8,7 @@ use Modules\Role\Http\Controllers\GetRoleController;
 use Modules\Role\Http\Controllers\RoleController;
 use Modules\Task\Http\Controllers\TaskController;
 use Modules\Assignment\Http\Controllers\AssignmentController;
+use Modules\Review\Http\Controllers\ReviewController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -35,7 +36,7 @@ Route::get("v1/balances/{user}", BalanceUserController::class)->middleware('gues
 
 /**
  * --------------------------
- *      MODULES/ROLES
+ *      MODULES/ROLE
  * --------------------------
  * Roles route used for assigning roles to users who are registering
  * The client consumes the roles in the DB and user is assigned on registration
@@ -45,7 +46,7 @@ Route::get("v1/roles", GetRoleController::class )->middleware('guest');
 
 /**
  *   --------------------------
- *      MODULES/ROLES
+ *      MODULES/TASKS
  *    --------------------------
  * Tasks route is used to check if current user has completed certains tasks
  * It will also be used in assigning tasks/assignments to users
@@ -54,12 +55,21 @@ Route::post("v1/tasks", TaskController::class)->middleware('guest');
 
 /**
  * --------------------------
- *      MODULES/ASSIGNMENTS
+ *      MODULES/ASSIGNMENT
  * --------------------------
  * Assignments route is used to create and retrieve surveys or any other
  * task that is to be performed by the client
  */
 Route::post("v1/assignments", AssignmentController::class)->middleware('guest');
+
+/**
+ * --------------------------
+ *      MODULES/REVIEW
+ * --------------------------
+ *  Review route is used for authenticated clients to post
+ *  Receive created reviews
+ */
+Route::post("v1/reviews", ReviewController::class)->middleware('guest');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
