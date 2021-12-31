@@ -33,7 +33,8 @@ class TaskTest extends TestCase
         ]);
 
         $assignment = Assignment::create([
-            'assignment_status' => $this->faker()->boolean()
+            'question' => $this->faker()->text(),
+            'category' => $this->faker()->word()
         ]);
 
         $response = $this->post('api/v1/tasks',[
