@@ -27,7 +27,10 @@ class CreateTasksTable extends Migration
                   ->on('assignments');
 
             $table->boolean('task_completed');
-            $table->time('task_started_at');
+            $table->time('task_completed_at');
+            $table->string('assignment_category');
+            $table->integer('assignment_rating');
+            $table->integer('assignment_earning');
 
             $table->timestamps();
         });
