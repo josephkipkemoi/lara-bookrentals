@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Modules\Balance\Http\Controllers\BalanceController;
+use Modules\Balance\Http\Controllers\BalanceUserController;
 use Modules\Role\Http\Controllers\GetRoleController;
 use Modules\Role\Http\Controllers\RoleController;
 use Modules\Task\Http\Controllers\TaskController;
@@ -17,11 +18,47 @@ use Modules\Assignment\Http\Controllers\AssignmentController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+ /**
+  *    --------------------------------------------------
+  *     EACH ENDPOINT IS MAPPED TO ITS OWN DOMAIN
+  *     THE DOMAINS CAN BE FOUND IN THE MODULES FOLDER
+  *     --------------------------------------------------
+ */
+/**
+ * --------------------------
+ *      MODULES/BALANCE
+ * --------------------------
+ * Balances route used for updating and checking current user balance
+ */
 Route::post("v1/balances", BalanceController::class )->middleware('guest');
+Route::get("v1/balances/{user}", BalanceUserController::class)->middleware('guest');
+
+/**
+ * --------------------------
+ *      MODULES/ROLES
+ * --------------------------
+ * Roles route used for assigning roles to users who are registering
+ * The client consumes the roles in the DB and user is assigned on registration
+ */
 Route::post("v1/roles", RoleController::class )->middleware('guest');
 Route::get("v1/roles", GetRoleController::class )->middleware('guest');
+
+/**
+ *   --------------------------
+ *      MODULES/ROLES
+ *    --------------------------
+ * Tasks route is used to check if current user has completed certains tasks
+ * It will also be used in assigning tasks/assignments to users
+ */
 Route::post("v1/tasks", TaskController::class)->middleware('guest');
+
+/**
+ * --------------------------
+ *      MODULES/ASSIGNMENTS
+ * --------------------------
+ * Assignments route is used to create and retrieve surveys or any other
+ * task that is to be performed by the client
+ */
 Route::post("v1/assignments", AssignmentController::class)->middleware('guest');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
