@@ -38,10 +38,13 @@ class TaskTest extends TestCase
         ]);
 
         $response = $this->post('api/v1/tasks',[
-            'task_completed' => $this->faker()->boolean(),
             'assignment_id' => $assignment->id,
-            'task_started_at' => $this->faker()->time(),
-            'user_id' => $user->id
+            'user_id' => $user->id,
+            'task_completed' => $this->faker()->boolean(),
+            'task_completed_at' => $this->faker()->time(),
+            'assignment_category' => $this->faker()->word(),
+            'assignment_rating' => $this->faker()->numberBetween(0,10),
+            'assignment_earning' => $this->faker()->numberBetween(50,100),
          ]);
 
         $response->assertCreated();
