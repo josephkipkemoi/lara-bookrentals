@@ -14,10 +14,12 @@ class Assignment extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'assignment_status',
+        'question',
+        'category',
     ];
 
     protected $casts = [
-        'assignment_status' => 'boolean',
+        'question' => 'string',
+        'category' => 'string'
     ];
 }
