@@ -8,9 +8,11 @@ class CreateTaskDTO
 
         public bool $task_completed,
 
-        public int $task_id,
+        public int $assignment_id,
 
-        public string $task_started_at
+        public string $task_started_at,
+
+        public int $user_id
 
     ){}
 }
