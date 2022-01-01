@@ -4,6 +4,7 @@ namespace Modules\Task\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Auth\Models\User;
 
 class Task extends Model
 {
@@ -32,4 +33,9 @@ class Task extends Model
         'assignment_rating' => 'integer',
         'assignment_earning' => 'integer'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
