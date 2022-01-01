@@ -11,6 +11,8 @@ use Modules\Assignment\Http\Controllers\AssignmentController;
 use Modules\Assignment\Http\Controllers\AssignmentIdController;
 use Modules\Review\Http\Controllers\ReviewController;
 use Modules\Review\Http\Controllers\ReviewUserController;
+use Modules\Task\Http\Controllers\TaskUserController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -54,6 +56,7 @@ Route::get("v1/roles", GetRoleController::class )->middleware('guest');
  * It will also be used in assigning tasks/assignments to users
  */
 Route::post("v1/tasks", TaskController::class)->middleware('guest');
+Route::get("v1/tasks", TaskUserController::class)->middleware('guest');
 
 /**
  * --------------------------
