@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Modules\Admin\Http\Controllers\AdminController;
 use Modules\Balance\Http\Controllers\BalanceController;
 use Modules\Balance\Http\Controllers\BalanceUserController;
 use Modules\Role\Http\Controllers\GetRoleController;
@@ -76,6 +77,14 @@ Route::get("v1/assignments/{assignment}", AssignmentIdController::class)->middle
  */
 Route::post("v1/reviews", ReviewController::class)->middleware('guest');
 Route::get("v1/reviews", ReviewUserController::class)->middleware('guest');
+/**
+ * --------------------------
+ *      MODULES/ADMIN
+ * --------------------------
+ *  Review route is used for authenticated clients to post
+ *  Receive created reviews
+ */
+Route::get("v1/admin", AdminController::class)->middleware('guest');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
