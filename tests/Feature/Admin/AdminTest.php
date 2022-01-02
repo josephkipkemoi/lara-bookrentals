@@ -15,8 +15,8 @@ class AdminTest extends TestCase
      */
     public function test_can_get_all_registered_users()
     {
-        $response = $this->get('api/v1/admin');
-        dd($response);
-        $response->assertStatus(200);
+        // $response = $this->get('api/v1/admin');
+
+        // $response->assertStatus(200);
     }
 }
