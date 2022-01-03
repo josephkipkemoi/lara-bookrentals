@@ -21,6 +21,7 @@ class BalanceTest extends TestCase
      */
     public function test_user_can_increment_balance_after_task_is_complete()
     {
+
         $user = User::create([
         'first_name' => $this->faker->firstName(),
         'last_name' => $this->faker->lastName(),
