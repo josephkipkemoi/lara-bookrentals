@@ -28,7 +28,6 @@ class CreateReviewRequest extends FormRequest
             'review_title' => ['required', 'string'],
             'review_body' => ['required', 'string'],
             'review_rating' => ['required', 'integer'],
-            'user_id' => ['required', 'integer']
         ];
     }
 
