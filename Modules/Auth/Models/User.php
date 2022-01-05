@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Modules\Balance\Models\Balance;
+use Modules\Review\Models\Review;
 use Modules\Task\Models\Task;
 
 class User extends Authenticatable
@@ -54,5 +55,10 @@ class User extends Authenticatable
     public function task()
     {
         return $this->hasMany(Task::class);
+    }
+
+    public function review()
+    {
+        return $this->hasMany(Review::class);
     }
 }
