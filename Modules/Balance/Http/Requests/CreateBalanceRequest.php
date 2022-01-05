@@ -26,7 +26,6 @@ class CreateBalanceRequest extends FormRequest
     {
         return [
             'balance' => ['required', 'integer'],
-            'user_id' => ['required', 'integer']
         ];
     }
 
