@@ -4,6 +4,7 @@ namespace Modules\Review\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Auth\Models\User;
 
 class Review extends Model
 {
@@ -26,4 +27,9 @@ class Review extends Model
         'review_rating' => 'integer',
         'user_id' => 'integer'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
