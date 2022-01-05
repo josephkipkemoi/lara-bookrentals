@@ -8,8 +8,8 @@ use Modules\Balance\Models\Balance;
 class BalanceUserController extends Controller
 {
     // Get balance for user
-    public function __invoke($id)
+    public function __invoke(User $user)
     {
-      return User::find($id)->balance;
+      return $user->balance;
     }
 }
