@@ -36,8 +36,8 @@ use Modules\Task\Http\Controllers\TaskUserController;
  * --------------------------
  * Balances route used for updating and checking current user balance
  */
-Route::post("v1/balances", BalanceController::class )->middleware('guest');
-Route::get("v1/balances/{user}", BalanceUserController::class)->middleware('guest');
+Route::post("v1/{user}/balances", BalanceController::class )->middleware('guest');
+Route::get("v1/{user}/balances", BalanceUserController::class)->middleware('guest');
 
 /**
  * --------------------------
