@@ -12,8 +12,6 @@ class CreateReviewDTO
 
         public int $review_rating,
 
-        public int $user_id,
-
     ){}
 }
 
