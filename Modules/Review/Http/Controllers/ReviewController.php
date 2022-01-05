@@ -4,13 +4,13 @@ namespace Modules\Review\Http\Controllers;
 
 use Modules\Review\DTO\CreateReviewDTO;
 use Modules\Review\Http\Requests\CreateReviewRequest;
-use Modules\Review\Models\Review;
+use Modules\Auth\Models\User;
 
 class ReviewController extends Controller
 {
     // create Review
-    public function __invoke(CreateReviewRequest $request, Review $review)
+    public function __invoke(CreateReviewRequest $request, User $user)
     {
-      return $review->create((array) new CreateReviewDTO(...$request->validated()));
+      return $user->review()->create((array) new CreateReviewDTO(...$request->validated()));
     }
 }
