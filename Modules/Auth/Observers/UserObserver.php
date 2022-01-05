@@ -11,6 +11,6 @@ class UserObserver
     // initialize balance table after user is created
     public function created(User $user)
     {
-        return  Balance::create(['balance' => 0, 'user_id' => $user->id]);
+        return  $user->balance()->create();
     }
 }
