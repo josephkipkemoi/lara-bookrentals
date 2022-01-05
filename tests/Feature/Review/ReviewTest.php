@@ -28,17 +28,16 @@ class ReviewTest extends TestCase
             'password_confirmation' => 'password'
         ]);
 
-        $response = $this->post('api/v1/reviews',[
+        $response = $this->post("api/v1/$user->id/reviews",[
             'review_title' => 'Good webiste',
             'review_body' => $this->faker()->text(),
             'review_rating' => $this->faker()->numberBetween(1,5),
-            'user_id' => $user->id
         ]);
 
         $response->assertCreated();
     }
 
-    public function test_can_get_reviews()
+    public function test_can_get_user_reviews()
     {
         $user = User::create([
             'first_name' => $this->faker->firstName(),
@@ -50,14 +49,36 @@ class ReviewTest extends TestCase
             'password_confirmation' => 'password'
         ]);
 
-        $response = $this->post('api/v1/reviews',[
+        $response = $this->post("api/v1/$user->id/reviews",[
             'review_title' => 'Good webiste',
             'review_body' => $this->faker()->text(),
             'review_rating' => $this->faker()->numberBetween(1,5),
-            'user_id' => $user->id
         ]);
 
-        $response = $this->get('api/v1/reviews');
+        $response = $this->get("api/v1/$user->id/reviews");
+
+        $response->assertOk();
+    }
+
+    public function test_can_get_all_reviews()
+    {
+        $user = User::create([
+            'first_name' => $this->faker->firstName(),
+            'last_name' => $this->faker->lastName(),
+            'identification_number' => 329590355,
+            'mobile_number' => 254700545727,
+            'email' => $this->faker->email(),
+            'password' => 'password',
+            'password_confirmation' => 'password'
+        ]);
+
+        $response = $this->post("api/v1/$user->id/reviews",[
+            'review_title' => 'Good webiste',
+            'review_body' => $this->faker()->text(),
+            'review_rating' => $this->faker()->numberBetween(1,5),
+        ]);
+
+        $response = $this->get("api/v1/reviews");
 
         $response->assertOk();
     }
