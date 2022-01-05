@@ -33,11 +33,8 @@ class BalanceTest extends TestCase
         'remember_token' => Str::random(10),
         ]);
 
-       $balance = Balance::create(['balance' => 200, 'user_id' => $user->id]);
-
-        $response = $this->post("api/v1/balances",[
+        $response = $this->post("api/v1/$user->id/balances",[
             'balance' => $this->faker->numberBetween(50,100),
-            'user_id' => $user->id
         ]);
 
         $response->assertCreated();
@@ -56,7 +53,7 @@ class BalanceTest extends TestCase
             'remember_token' => Str::random(10),
         ]);
 
-        $response = $this->get("api/v1/balances/$user->id");
+        $response = $this->get("api/v1/$user->id/balances");
 
         $response->assertOk();
     }
