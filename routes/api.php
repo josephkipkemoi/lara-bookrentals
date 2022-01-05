@@ -12,6 +12,7 @@ use Modules\Assignment\Http\Controllers\AssignmentController;
 use Modules\Assignment\Http\Controllers\AssignmentIdController;
 use Modules\Review\Http\Controllers\ReviewController;
 use Modules\Review\Http\Controllers\ReviewUserController;
+use Modules\Review\Http\Controllers\GetReviewController;
 use Modules\Task\Http\Controllers\TaskUserController;
 
 /*
@@ -75,8 +76,9 @@ Route::get("v1/assignments/{assignment}", AssignmentIdController::class)->middle
  *  Review route is used for authenticated clients to post
  *  Receive created reviews
  */
-Route::post("v1/reviews", ReviewController::class)->middleware('guest');
-Route::get("v1/reviews", ReviewUserController::class)->middleware('guest');
+Route::post("v1/{user}/reviews", ReviewController::class)->middleware('guest');
+Route::get("v1/{user}/reviews", ReviewUserController::class)->middleware('guest');
+Route::get("v1/reviews", GetReviewController::class)->middleware('guest');
 /**
  * --------------------------
  *      MODULES/ADMIN
