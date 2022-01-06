@@ -26,7 +26,6 @@ class CreateAssignmentRequest extends FormRequest
     {
         return [
             'question' => ['required', 'string'],
-            'category' => ['required', 'string']
         ];
     }
 
