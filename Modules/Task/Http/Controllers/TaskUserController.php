@@ -2,15 +2,13 @@
 
 namespace Modules\Task\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Modules\Auth\Models\User;
-use Modules\Task\Models\Task;
 
 class TaskUserController extends Controller
 {
-    // create task
-    public function __invoke(User $user, Request $request)
+    // get all tasks
+    public function __invoke(User $user)
     {
-      return $user->find($request->input('user'))->task;
+      return $user->task;
     }
 }
