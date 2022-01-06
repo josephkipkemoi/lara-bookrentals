@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Modules\Assignment\Models\Assignment;
 use Modules\Auth\Models\User;
 use Modules\Balance\Models\Balance;
+use Modules\Category\Models\Category;
 use Tests\TestCase;
 
 use function PHPUnit\Framework\assertEquals;
@@ -32,20 +33,23 @@ class TaskTest extends TestCase
             'password_confirmation' => 'password'
         ]);
 
-        $assignment = Assignment::create([
-            'question' => $this->faker()->text(),
-            'category' => $this->faker()->word()
+        $category = Category::create([
+            'category' => $this->faker()->word(6),
         ]);
 
-        $response = $this->post('api/v1/tasks',[
+        $this->post("api/v1/{$category->id}/assignments", [
+            'question' => $this->faker()->text()
+        ]);
+        $assignment = Assignment::first();
+
+        $response = $this->post("api/v1/{$user->id}/tasks",[
             'assignment_id' => $assignment->id,
-            'user_id' => $user->id,
             'task_completed' => $this->faker()->boolean(),
             'task_completed_at' => $this->faker()->time(),
-            'assignment_category' => $this->faker()->word(),
             'assignment_rating' => $this->faker()->numberBetween(0,10),
             'assignment_earning' => $this->faker()->numberBetween(50,100),
-         ]);
+            'assignment_category' => $assignment->category->category
+        ]);
 
          $response->assertCreated();
 
@@ -67,22 +71,27 @@ class TaskTest extends TestCase
             'password_confirmation' => 'password'
         ]);
 
-        $assignment = Assignment::create([
-            'question' => $this->faker()->text(),
-            'category' => $this->faker()->word()
+        $category = Category::create([
+            'category' => $this->faker()->word(6),
         ]);
 
-        $this->post('api/v1/tasks',[
+        $this->post("api/v1/{$category->id}/assignments", [
+            'question' => $this->faker()->text()
+        ]);
+
+        $assignment = Assignment::first();
+
+        $response = $this->post("api/v1/{$user->id}/tasks",[
             'assignment_id' => $assignment->id,
-            'user_id' => $user->id,
             'task_completed' => $this->faker()->boolean(),
             'task_completed_at' => $this->faker()->time(),
-            'assignment_category' => $this->faker()->word(),
             'assignment_rating' => $this->faker()->numberBetween(0,10),
             'assignment_earning' => $this->faker()->numberBetween(50,100),
+            'assignment_category' => $assignment->category->category
         ]);
 
-        $response = $this->get("api/v1/tasks?user={$user->id}");
+
+        $response = $this->get("api/v1/$user->id/tasks");
 
         $response->assertOk();
     }
