@@ -8,8 +8,6 @@ class CreateAssignmentDTO
 
         public string $question,
 
-        public string $category,
-
     ){}
 }
 
