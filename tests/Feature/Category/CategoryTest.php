@@ -38,4 +38,5 @@ class CategoryTest extends TestCase
         $response->assertOk()
                  ->assertJsonCount(2);
     }
+
 }
