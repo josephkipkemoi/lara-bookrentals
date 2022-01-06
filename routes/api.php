@@ -9,7 +9,7 @@ use Modules\Role\Http\Controllers\GetRoleController;
 use Modules\Role\Http\Controllers\RoleController;
 use Modules\Task\Http\Controllers\TaskController;
 use Modules\Assignment\Http\Controllers\AssignmentController;
-use Modules\Assignment\Http\Controllers\AssignmentIdController;
+use Modules\Assignment\Http\Controllers\AssignmentCategoryController;
 use Modules\Category\Http\Controllers\CategoryController;
 use Modules\Category\Http\Controllers\GetCategoryController;
 use Modules\Review\Http\Controllers\ReviewController;
@@ -68,9 +68,8 @@ Route::get("v1/tasks", TaskUserController::class)->middleware('guest');
  * Assignments route is used to create and retrieve surveys or any other
  * task that is to be performed by the client
  */
-Route::post("v1/categories", CategoryController::class)->middleware('guest');
-Route::get("v1/categories", GetCategoryController::class)->middleware('guest');
-
+Route::post("v1/categories", CategoryController::class);
+Route::get("v1/categories", GetCategoryController::class);
 /**
  * --------------------------
  *      MODULES/ASSIGNMENT
@@ -78,8 +77,8 @@ Route::get("v1/categories", GetCategoryController::class)->middleware('guest');
  * Assignments route is used to create and retrieve surveys or any other
  * task that is to be performed by the client
  */
-Route::post("v1/assignments", AssignmentController::class)->middleware('guest');
-Route::get("v1/assignments/{assignment}", AssignmentIdController::class)->middleware('guest');
+Route::post("v1/{category}/assignments", AssignmentController::class);
+Route::get("v1/{category}/assignments", AssignmentCategoryController::class);
 /**
  * --------------------------
  *      MODULES/REVIEW
