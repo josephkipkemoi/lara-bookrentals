@@ -6,8 +6,6 @@ class CreateTaskDTO
 {
     public function __construct(
 
-        public int $user_id,
-
         public int $assignment_id,
 
         public bool $task_completed,
