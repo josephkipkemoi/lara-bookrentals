@@ -59,8 +59,8 @@ Route::get("v1/roles", GetRoleController::class )->middleware('guest');
  * Tasks route is used to check if current user has completed certains tasks
  * It will also be used in assigning tasks/assignments to users
  */
-Route::post("v1/tasks", TaskController::class)->middleware('guest');
-Route::get("v1/tasks", TaskUserController::class)->middleware('guest');
+Route::post("v1/{user}/tasks", TaskController::class)->middleware('guest');
+Route::get("v1/{user}/tasks", TaskUserController::class)->middleware('guest');
 /**
  * --------------------------
  *      MODULES/CATEGORY
