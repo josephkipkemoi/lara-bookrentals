@@ -15,10 +15,13 @@ class CreateAssignmentsTable extends Migration
     {
         Schema::create('assignments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')
+                  ->references('id')
+                  ->on('categories');
 
             $table->boolean('locked')->default(true);
             $table->string('question');
-            $table->string('category');
             $table->integer('lowest_rating')->default(0);
             $table->integer('highest_rating')->default(10);
 
