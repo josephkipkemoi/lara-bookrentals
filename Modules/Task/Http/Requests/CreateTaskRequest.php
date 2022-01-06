@@ -25,11 +25,10 @@ class CreateTaskRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => ['required', 'integer'],
+            'assignment_category' => ['required', 'string'],
             'assignment_id' => ['required', 'integer'],
             'task_completed' => ['required', 'boolean'],
             'task_completed_at' => ['required', 'string'],
-            'assignment_category' => ['required', 'string'],
             'assignment_rating' => ['required', 'integer'],
             'assignment_earning' => ['required', 'integer'],
         ];
