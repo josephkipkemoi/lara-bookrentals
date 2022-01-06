@@ -4,6 +4,7 @@ namespace Modules\Task\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Assignment\Models\Assignment;
 use Modules\Auth\Models\User;
 
 class Task extends Model
@@ -37,5 +38,10 @@ class Task extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function assignment()
+    {
+        return $this->hasOne(Assignment::class);
     }
 }
