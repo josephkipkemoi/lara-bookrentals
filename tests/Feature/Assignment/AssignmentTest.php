@@ -40,4 +40,17 @@ class AssignmentTest extends TestCase
 
         $response->assertOk();
     }
+
+    public function test_can_get_assignment_by_id()
+    {
+        $category = Category::create(['category' => $this->faker()->word(6)]);
+
+        $assignment =  $this->post("api/v1/$category->id/assignments", [
+            'question' => $this->faker()->text()
+        ])->getData();
+
+        $response = $this->get("api/v1/$category->id/assignments/$assignment->id");
+
+        $response->assertOk();
+    }
 }
