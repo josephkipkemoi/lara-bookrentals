@@ -24,6 +24,7 @@ class CreateAssignmentsTable extends Migration
             $table->string('question');
             $table->integer('lowest_rating')->default(0);
             $table->integer('highest_rating')->default(10);
+            $table->integer('assignment_reward')->default(10);
 
             $table->timestamps();
         });
