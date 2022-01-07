@@ -10,6 +10,7 @@ use Modules\Role\Http\Controllers\RoleController;
 use Modules\Task\Http\Controllers\TaskController;
 use Modules\Assignment\Http\Controllers\AssignmentController;
 use Modules\Assignment\Http\Controllers\AssignmentCategoryController;
+use Modules\Assignment\Http\Controllers\AssignmentByIdController;
 use Modules\Category\Http\Controllers\CategoryController;
 use Modules\Category\Http\Controllers\GetCategoryController;
 use Modules\Review\Http\Controllers\ReviewController;
@@ -79,6 +80,7 @@ Route::get("v1/categories", GetCategoryController::class);
  */
 Route::post("v1/{category}/assignments", AssignmentController::class);
 Route::get("v1/{category}/assignments", AssignmentCategoryController::class);
+Route::get("v1/{category}/assignments/{assignment}", AssignmentByIdController::class);
 /**
  * --------------------------
  *      MODULES/REVIEW
