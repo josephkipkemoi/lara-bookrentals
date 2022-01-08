@@ -68,7 +68,7 @@ Setting up project in development mode:
 </table>
 
 <table>
-<h2>Blog Post(s)</h2>
+<h2>Balance</h2>
 <tr>
     <th>METHOD</th>
     <th>END POINT</th>
@@ -76,86 +76,17 @@ Setting up project in development mode:
 </tr>
 <tr>
     <td>POST</td>
-    <td>api/v1/blogs</td>
-    <td>json {"title":"Some cool blog title", "author": "$user->name | Guest", "body":"Some long or shor blog body", "user_id":"$user->id"}</td>
+    <td>api/v1/$user->id/balances</td>
+    <td>json {"balance":"70"}</td>
 </tr>
 <tr>
     <td>GET</td>
-    <td>api/v1/blogs</td>
-    <td>N/A</td>
-</tr>
-<tr>
-    <td>PATCH</td>
-    <td>api/v1/blogs/{$blog->id}</td>
-    <td>json {"title":"updated title", "body":"updated body", "author":"Andrew Meakings"}</td>
-</tr>
-<tr>
-    <td>GET</td>
-    <td>api/v1/blogs/{$blog->id}</td>
-    <td>N/A</td>
-</tr>
-<tr>
-    <td>DELETE</td>
-    <td>api/v1/blogs/{$blog->id}</td>
+    <td>api/v1/$user->id/balances</td>
     <td>N/A</td>
 </tr>
 </table>
-
 <table>
-<h2>Tag(s)</h2>
-<tr>
-    <th>METHOD</th>
-    <th>END POINT</th>
-    <th>PARAMS</th>
-</tr>
-<tr>
-    <td>POST</td>
-    <td>api/v1/tags</td>
-    <td>json {"tag":"laravel"}</td>
-</tr>
-<tr>
-    <td>GET</td>
-    <td>api/v1/tags/{$blog->id}</td>
-    <td>N/A</td>
-</tr>
-<tr>
-    <td>GET</td>
-    <td>api/v1/tags?tag_id={$tag->id}</td>
-    <td>N/A</td>
-</tr>
-</table>
-
-<table>
-<h2>Comment(s)</h2>
-<tr>
-    <th>METHOD</th>
-    <th>END POINT</th>
-    <th>PARAMS</th>
-</tr>
-<tr>
-    <td>POST</td>
-    <td>api/v1/blogs/{$blog->id}/comments</td>
-    <td>json {"user_id":"$user->id","blog_id":"$blog->id","comment_body":"some cool comment"}</td>
-</tr>
-<tr>
-    <td>GET</td>
-    <td>api/v1/blogs/{$comment->blog_id}/comments/{$comment->id}</td>
-    <td>N/A</td>
-</tr>
-<tr>
-    <td>PATCH</td>
-    <td>api/v1/blogs/{$comment->blog_id}/comments/{$comment->id}</td>
-    <td>json {"comment_body":"updated comment body"}</td>
-</tr>
-<tr>
-    <td>DELETE</td>
-    <td>api/v1/blogs/{$comment->blog_id}/comments/{$comment->id}</td>
-    <td>N/A</td>
-</tr>
-</table>
-
-<table>
-<h2>Category</h2>
+<h2>Category (s)</h2>
 <tr>
     <th>METHOD</th>
     <th>END POINT</th>
@@ -164,11 +95,99 @@ Setting up project in development mode:
 <tr>
     <td>POST</td>
     <td>api/v1/categories</td>
-    <td>json {"category":"sports"}</td>
+    <td>json {"category":"Sports"}</td>
 </tr>
 <tr>
     <td>GET</td>
-    <td>api/v1/categories/{$category->id}</td>
+    <td>api/v1/categories</td>
     <td>N/A</td>
 </tr>
 </table>
+<table>
+<h2>Review (s)</h2>
+<tr>
+    <th>METHOD</th>
+    <th>END POINT</th>
+    <th>PARAMS</th>
+</tr>
+<tr>
+    <td>POST</td>
+    <td>api/v1/$user->id/reviews</td>
+    <td>json {"review_title":"some title","review_body":"some body","review_rating":"4"}</td>
+</tr>
+<tr>
+    <td>GET</td>
+    <td>api/v1/reviews</td>
+    <td>N/A</td>
+</tr>
+<tr>
+    <td>GET</td>
+    <td>api/v1/$user->id/reviews</td>
+    <td>N/A</td>
+</tr>
+<tr>
+    <td>DELETE</td>
+    <td>aapi/v1/$user->id/reviews/$review->id</td>
+    <td>N/A</td>
+</tr>
+</table>
+<table>
+<h2>Role</h2>
+<tr>
+    <th>METHOD</th>
+    <th>END POINT</th>
+    <th>PARAMS</th>
+</tr>
+<tr>
+    <td>POST</td>
+    <td>api/v1/roles</td>
+    <td>json {"role":"Manager"}</td>
+</tr>
+<tr>
+    <td>GET</td>
+    <td>api/v1/roles</td>
+    <td>N/A</td>
+</tr>
+</table>
+<table>
+<h2>Assignment</h2>
+<tr>
+    <th>METHOD</th>
+    <th>END POINT</th>
+    <th>PARAMS</th>
+</tr>
+<tr>
+    <td>POST</td>
+    <td>api/v1/$category->id/assignments</td>
+    <td>json {"question":"Some quesion"}</td>
+</tr>
+<tr>
+    <td>GET</td>
+    <td>api/v1/$category->id/assignments</td>
+    <td>N/A</td>
+</tr>
+<tr>
+    <td>GET</td>
+    <td>api/v1/$category->id/assignments/$assignment->id</td>
+    <td>N/A</td>
+</tr>
+</table>
+<table>
+<h2>Task</h2>
+<tr>
+    <th>METHOD</th>
+    <th>END POINT</th>
+    <th>PARAMS</th>
+</tr>
+<tr>
+    <td>POST</td>
+    <td>api/v1/{$user->id}/tasks</td>
+    <td>json {"assignment_id":"assignment_id","task_completed":"bool","task_completed_at":"1245","assignment_rating":"4","assignment_earning":"50","assignment_category":"Sports"}</td>
+</tr>
+<tr>
+    <td>GET</td>
+    <td>api/v1/$user->id/tasks</td>
+    <td>N/A</td>
+</tr>
+</table>
+
