@@ -27,7 +27,7 @@ Setting up project in development mode:
 <p>Setup database locally on your machine, add <mark>larablog</mark> as a value to the respective environment variable as below:</p>
 <ul>
     <li>mysql -p['password']</li>
-    <li>CREATE DATABASE larablog;</li> 
+    <li>CREATE DATABASE [db_name];</li> 
     <li>exit;</li>
 </ul>
 
