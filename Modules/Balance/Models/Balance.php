@@ -24,6 +24,8 @@ class Balance extends Model
         'user_id' => 'integer'
     ];
 
+    protected $dates = ['updated_at'];
+
     public function user()
     {
        return $this->belongsTo(User::class);
