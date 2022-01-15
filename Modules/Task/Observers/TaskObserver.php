@@ -10,12 +10,11 @@ use Modules\Task\Models\Task;
 class TaskObserver
 {
     // increment balance after task is complete
-    // To add try catch, not sure what the catch is currently
-    public function created(Task $task)
+     public function created(Task $task)
     {
-        if($task->task_completed === true)
+         if($task->task_completed === true)
         {
-           return Balance::where('user_id',$task->user_id)->update(['balance' => DB::raw('balance + 10')]);
+           return Balance::where('user_id',$task->user_id)->update(['balance' => DB::raw("balance + $task->assignment_earning")]);
         }
     }
 }
