@@ -19,7 +19,7 @@ use Modules\Review\Http\Controllers\ReviewUserController;
 use Modules\Review\Http\Controllers\GetReviewController;
 use Modules\Role\Http\Controllers\RoleUserController;
 use Modules\Task\Http\Controllers\TaskUserController;
-
+use Modules\Contact\Http\Controllers\ContactController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -110,6 +110,14 @@ Route::get("v1/reviews", GetReviewController::class)->middleware('guest');
  *  Receive created reviews
  */
 // Route::get("v1/admin", AdminController::class)->middleware('guest');
+/**
+ * --------------------------
+ *      MODULES/CONTACT
+ * --------------------------
+ *  Review route is used for authenticated clients to post
+ *  Receive created reviews
+ */
+Route::post("v1/contacts", ContactController::class)->middleware('guest');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
