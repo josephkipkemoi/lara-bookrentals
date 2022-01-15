@@ -12,8 +12,8 @@ Balance
 
 Tasks
 [] Activate second task 24hrs after first task has been completed
-[] Tasks open for verifired users only
-[] Increment balance for each task based on role
+[x] Tasks open for verifired users only
+[x] Increment balance for each task based on role
 [] Deploy 5 Tasks per day from the categories
 
 Contact
