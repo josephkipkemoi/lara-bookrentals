@@ -90,7 +90,6 @@ class TaskTest extends TestCase
             'assignment_category' => $assignment->category->category
         ]);
 
-
         $response = $this->get("api/v1/$user->id/tasks");
 
         $response->assertOk();
