@@ -15,6 +15,16 @@ class Task extends Model
      *
      * @var array<int, string>
      */
+    public const ASSISTANT_EARNINGS = 100;
+
+    public const ADMINISTRATOR_EARNINGS = 250;
+
+    public const SPECIALIST_EARNINGS = 500;
+
+    public const MANAGER_EARNINGS = 1000;
+
+    public const EXECUTIVE_EARNINGS = 2500;
+
     protected $fillable = [
         'user_id',
         'assignment_id',
