@@ -13,6 +13,7 @@ use Modules\Assignment\Http\Controllers\AssignmentCategoryController;
 use Modules\Assignment\Http\Controllers\AssignmentByIdController;
 use Modules\Category\Http\Controllers\CategoryController;
 use Modules\Category\Http\Controllers\GetCategoryController;
+use Modules\Payment\Http\Controllers\PaymentController;
 use Modules\Review\Http\Controllers\ReviewController;
 use Modules\Review\Http\Controllers\ReviewUserController;
 use Modules\Review\Http\Controllers\GetReviewController;
@@ -35,6 +36,14 @@ use Modules\Task\Http\Controllers\TaskUserController;
   *     THE DOMAINS CAN BE FOUND IN THE MODULES FOLDER
   *     --------------------------------------------------
  */
+/**
+ * --------------------------
+ *      MODULES/PAYMENT
+ * --------------------------
+ * Balances route used for updating and checking current user balance
+ */
+Route::post("v1/{user}/payments", PaymentController::class )->middleware('guest');
+
 /**
  * --------------------------
  *      MODULES/BALANCE
