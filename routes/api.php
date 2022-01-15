@@ -16,6 +16,7 @@ use Modules\Category\Http\Controllers\GetCategoryController;
 use Modules\Review\Http\Controllers\ReviewController;
 use Modules\Review\Http\Controllers\ReviewUserController;
 use Modules\Review\Http\Controllers\GetReviewController;
+use Modules\Role\Http\Controllers\RoleUserController;
 use Modules\Task\Http\Controllers\TaskUserController;
 
 /*
@@ -50,7 +51,8 @@ Route::get("v1/{user}/balances", BalanceUserController::class)->middleware('gues
  * Roles route used for assigning roles to users who are registering
  * The client consumes the roles in the DB and user is assigned on registration
  */
-Route::post("v1/roles", RoleController::class )->middleware('guest');
+Route::post("v1/{user}/roles", RoleController::class )->middleware('guest');
+Route::get("v1/{user}/roles/{role}", RoleUserController::class )->middleware('guest');
 Route::get("v1/roles", GetRoleController::class )->middleware('guest');
 
 /**

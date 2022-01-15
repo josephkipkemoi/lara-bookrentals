@@ -1,7 +1,11 @@
 
 User
-[] Add roles
+[x] Add roles
 [] Verify user
+
+Payment
+[] Deposit payment to DB
+[] Activate user
 
 Balance
 [] Balance updated at
