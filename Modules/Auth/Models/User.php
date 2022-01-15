@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Modules\Balance\Models\Balance;
 use Modules\Review\Models\Review;
+use Modules\Role\Models\Role;
 use Modules\Task\Models\Task;
 
 class User extends Authenticatable
@@ -60,5 +61,10 @@ class User extends Authenticatable
     public function review()
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class)->withPivot('role_id');
     }
 }
