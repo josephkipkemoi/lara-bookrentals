@@ -4,13 +4,13 @@ namespace Modules\Role\Http\Controllers;
 
 use Modules\Role\DTO\CreateRoleDTO;
 use Modules\Role\Http\Requests\CreateRoleRequest;
-use Modules\Role\Models\Role;
+use Modules\Auth\Models\User;
 
 class RoleController extends Controller
 {
-    // Register user
-    public function __invoke(CreateRoleRequest $request, Role $role)
+    // Register user role
+    public function __invoke(CreateRoleRequest $request, User $user)
     {
-      return $role->create((array) new CreateRoleDTO(...$request->validated()));
+      return $user->roles()->create((array) new CreateRoleDTO(...$request->validated()));
     }
 }
