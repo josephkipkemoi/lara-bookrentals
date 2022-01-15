@@ -8,6 +8,8 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use Illuminate\Support\Facades\Event;
 use Modules\Auth\Models\User;
 use Modules\Auth\Observers\UserObserver;
+use Modules\Payment\Models\Payment;
+use Modules\Payment\Observers\PaymentObserver;
 use Modules\Task\Models\Task;
 use Modules\Task\Observers\TaskObserver;
 
@@ -34,5 +36,6 @@ class EventServiceProvider extends ServiceProvider
         //
         Task::observe(TaskObserver::class);
         User::observe(UserObserver::class);
+        Payment::observe(PaymentObserver::class);
     }
 }
