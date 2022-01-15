@@ -1,14 +1,14 @@
 
 User
 [x] Add roles
-[] Verify user
+[x] Verify user after payment is confirmed
 
 Payment
-[] Deposit payment to DB
-[] Activate user
+[x] Deposit payment to DB
+[x] Activate user
 
 Balance
-[] Balance updated at
+[x] Balance updated at
 
 Tasks
 [] Activate second task 24hrs after first task has been completed
