@@ -6,6 +6,7 @@ User
 Payment
 [x] Deposit payment to DB
 [x] Activate user
+[] Once payment is made, send email to admin
 
 Balance
 [x] Balance updated at
