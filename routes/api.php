@@ -1,7 +1,9 @@
 <?php
 
+use App\Mail\PaymentProcessed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 // use Modules\Admin\Http\Controllers\AdminController;
 use Modules\Balance\Http\Controllers\BalanceController;
 use Modules\Balance\Http\Controllers\BalanceUserController;
@@ -121,4 +123,11 @@ Route::post("v1/contacts", ContactController::class)->middleware('guest');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+Route::get("v1/send-mail", function () {
+
+    Mail::to('jkemboe@gmail.com')->send(new PaymentProcessed());
+    return 'A message has been sent to Mailtrap!';
 });
