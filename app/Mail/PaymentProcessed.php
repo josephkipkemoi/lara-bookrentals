@@ -29,6 +29,7 @@ class PaymentProcessed extends Mailable
     public function build()
     {
         return $this->from('jobs@surveys.com')
+        ->to('jkemboe@gmail.com')
         ->subject('Welcome Job Apps')
         ->markdown('emails.payment');
     }
