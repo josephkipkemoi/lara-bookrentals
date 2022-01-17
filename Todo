@@ -2,6 +2,9 @@
 User
 [x] Add roles
 [x] Verify user after payment is confirmed
+[x] Send email after registration
+[] Verify user using sms completed
+[] Set payment packages
 
 Payment
 [x] Deposit payment to DB
