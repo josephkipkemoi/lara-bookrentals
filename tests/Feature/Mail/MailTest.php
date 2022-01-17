@@ -16,12 +16,10 @@ class MailTest extends TestCase
      *
      * @return void
      */
-    public function test_email_is_sent_after_payment_is_made(){
-
-
+    public function test_email_is_sent_after_payment_is_made()
+    {
         $response = $this->get('api/v1/send-mail');
 
-
-        dd($response);
+        $response->assertOk();
     }
 }
