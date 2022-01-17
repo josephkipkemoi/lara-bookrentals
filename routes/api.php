@@ -22,6 +22,8 @@ use Modules\Review\Http\Controllers\GetReviewController;
 use Modules\Role\Http\Controllers\RoleUserController;
 use Modules\Task\Http\Controllers\TaskUserController;
 use Modules\Contact\Http\Controllers\ContactController;
+use Modules\Payment\Http\Controllers\PaymentUserController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -45,6 +47,7 @@ use Modules\Contact\Http\Controllers\ContactController;
  * Balances route used for updating and checking current user balance
  */
 Route::post("v1/{user}/payments", PaymentController::class )->middleware('guest');
+Route::get("v1/payments", PaymentUserController::class )->middleware('guest');
 
 /**
  * --------------------------
@@ -128,6 +131,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get("v1/send-mail", function () {
 
-    Mail::to('jkemboe@gmail.com')->send(new PaymentProcessed());
-    return 'A message has been sent to Mailtrap!';
+    Mail::send(new PaymentProcessed());
+    return new PaymentProcessed();
 });
