@@ -13,10 +13,10 @@ class AdminTest extends TestCase
      *
      * @return void
      */
-    public function test_can_get_all_registered_users()
+    public function test_can_get_all_registered_users_who_have_made_payments()
     {
-        // $response = $this->get('api/v1/admin');
+        $response = $this->get('api/v1/payments');
 
-        // $response->assertStatus(200);
+        $response->assertOk();
     }
 }
