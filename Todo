@@ -4,7 +4,7 @@ User
 [x] Verify user after payment is confirmed
 [x] Send email after registration
 [] Verify user using sms completed
-[] Set payment packages
+[x] Set payment packages
 
 Payment
 [x] Deposit payment to DB
@@ -18,7 +18,7 @@ Tasks
 [] Activate second task 24hrs after first task has been completed
 [x] Tasks open for verifired users only
 [x] Increment balance for each task based on role
-[] Deploy 5 Tasks per day from the categories
+[] Deploy 5 Tasks per day from the categories --- set is_open field
 
 Contact
 
