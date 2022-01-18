@@ -8,6 +8,7 @@
 
 <ul>
     <li>PHP 7.3 | 8.0</li>
+    <li>Composer</li>
 </ul>
 
 ## Getting Started
@@ -18,6 +19,7 @@ Setting up project in development mode:
     <p>php -v </p>
     <li>Clone the repository to your machine and navigate into it:</li>
     <p>git clone https://github.com/josephkipkemoi/larablog</p>
+    <p>cd larablog</p>
     <li>Install application dependencies</li>
     <p>composer install</p>
     <li>Create a .env file and include the necessary environment variables. NB- copy from the .env.example and fill in the correct values</li>
