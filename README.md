@@ -18,7 +18,7 @@ Setting up project in development mode:
     <li>Ensure PHP 7.3 or greater is installed by running: </li>
     <p>php -v </p>
     <li>Clone the repository to your machine and navigate into it:</li>
-    <p>git clone https://github.com/josephkipkemoi/larablog</p>
+    <p>git clone https://github.com/josephkipkemoi/lara-bookrentals.git</p>
     <p>cd larablog</p>
     <li>Install application dependencies</li>
     <p>composer update</p>
