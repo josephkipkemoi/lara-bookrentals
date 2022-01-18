@@ -26,7 +26,7 @@ Setting up project in development mode:
 </ul>
 
 ## Database Setup
-<p>Setup database locally on your machine, add <mark>larablog</mark> as a value to the respective environment variable as below:</p>
+<p>Setup database locally on your machine, add <mark>lara_bookrental</mark> as a value to the respective environment variable as below:</p>
 <ul>
     <li>mysql -p['password']</li>
     <li>CREATE DATABASE [db_name];</li> 
