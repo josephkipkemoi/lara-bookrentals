@@ -15,7 +15,9 @@ class CreateRegisterUserDTO
 
         public string $password,
 
-        public string $email
+        public string $email,
+
+        public string $referral_code
     )
     {}
 }

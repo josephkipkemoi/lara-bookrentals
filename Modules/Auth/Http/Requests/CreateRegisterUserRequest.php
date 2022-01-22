@@ -31,6 +31,7 @@ class CreateRegisterUserRequest extends FormRequest
             'identification_number' => ['required', 'integer','min:10'],
             'mobile_number' => ['required', 'numeric'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'referral_code' => ['string'],
             'password' => ['required','confirmed', Rules\Password::defaults()],
         ];
     }
