@@ -2,7 +2,7 @@
 
 ## Setup
 
-<a href="https://larablog.herokuapp.com" target="_blank">Deployed API</a>
+<a href="https://shielded-river-12217.herokuapp.com/" target="_blank">Deployed API</a>
 
 ## Dependencies
 
