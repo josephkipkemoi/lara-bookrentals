@@ -2,7 +2,7 @@
 
 ## Setup
 
-<a href="http://jiajiri-ke.herokuapp.com/" target="_blank">Deployed API</a>
+<a href="http://jiajiri-ke.herokuapp.com/" target="_blank">Deployed APP</a>
 
 ## Dependencies
 
